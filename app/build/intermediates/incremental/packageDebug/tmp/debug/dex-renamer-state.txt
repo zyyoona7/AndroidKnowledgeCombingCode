@@ -1,4 +1,0 @@
-#Thu Aug 22 17:31:02 CST 2019
-base.0=/Users/zhuoyue/AndroidStudioProjects/AndroidKnowledgeCombingCode/app/build/intermediates/dex/debug/out/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
