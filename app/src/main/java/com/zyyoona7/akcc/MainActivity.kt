@@ -4,11 +4,12 @@ import android.os.Bundle
 import com.zyyoona7.akcc.animation.AnimationActivity
 import com.zyyoona7.akcc.base.BindingActivity
 import com.zyyoona7.akcc.databinding.ActivityMainBinding
+import com.zyyoona7.akcc.handler.HandlerActivity
 
 class MainActivity : BindingActivity<ActivityMainBinding>() {
 
     override fun getLayoutId(): Int {
-       return R.layout.activity_main
+        return R.layout.activity_main
     }
 
     override fun initVarAndViews(savedInstanceState: Bundle?) {
@@ -20,6 +21,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
     override fun initListeners(savedInstanceState: Bundle?) {
         binding.btnAnimation.setOnClickListener {
             AnimationActivity.start(this@MainActivity)
+        }
+
+        binding.btnHandler.setOnClickListener {
+            HandlerActivity.start(this@MainActivity)
         }
     }
 
