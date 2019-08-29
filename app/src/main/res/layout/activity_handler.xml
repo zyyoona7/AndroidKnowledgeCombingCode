@@ -13,6 +13,32 @@
             android:text="normal 1"
             android:id="@+id/btn_normal1"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toTopOf="@id/btn_start_looper_thread"
+            app:layout_constraintVertical_chainStyle="packed"/>
+        <Button
+            android:id="@+id/btn_start_looper_thread"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start LooperThread"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_normal1"
+            app:layout_constraintBottom_toTopOf="@id/btn_quit_looper_thread"/>
+        <Button
+            android:id="@+id/btn_quit_looper_thread"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="quit LooperThread"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_start_looper_thread"
+            app:layout_constraintBottom_toTopOf="@id/btn_send_msg_to_looper_thread"
+            />
+        <Button
+            android:id="@+id/btn_send_msg_to_looper_thread"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="send msg to looperThread"
+            app:layout_constraintTop_toBottomOf="@id/btn_quit_looper_thread"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

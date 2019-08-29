@@ -14,8 +14,8 @@ import com.zyyoona7.akcc.base.BindingActivity
 import com.zyyoona7.akcc.databinding.ActivityHandlerBinding
 import java.lang.ref.WeakReference
 
-const val MSG_NORMAL_1 = 1
-const val TAG="HandlerActivity"
+private const val MSG_NORMAL_1 = 1
+private const val TAG="HandlerActivity"
 
 class HandlerActivity : BindingActivity<ActivityHandlerBinding>() {
 
@@ -27,13 +27,21 @@ class HandlerActivity : BindingActivity<ActivityHandlerBinding>() {
     }
 
     private lateinit var mainHandler: Handler
+    private var looperThread:LooperThread?=null
+    private var sendMsgCount=0
 
     override fun getLayoutId(): Int {
         return R.layout.activity_handler
     }
 
     override fun initVarAndViews(savedInstanceState: Bundle?) {
-        mainHandler = Handler()
+        //线程间传递消息
+        mainHandler = MainHandler(this)
+        //延时操作
+        val delayHandler=Handler()
+        delayHandler.postDelayed({
+            Log.d(TAG,"delay runnable execute.")
+        },1000)
     }
 
     override fun initData(savedInstanceState: Bundle?) {
@@ -42,6 +50,18 @@ class HandlerActivity : BindingActivity<ActivityHandlerBinding>() {
     override fun initListeners(savedInstanceState: Bundle?) {
         binding.btnNormal1.setOnClickListener {
             doNormalHandlerTask()
+        }
+
+        binding.btnStartLooperThread.setOnClickListener {
+            startLooperThread()
+        }
+
+        binding.btnQuitLooperThread.setOnClickListener {
+            qiutLooperThread()
+        }
+
+        binding.btnSendMsgToLooperThread.setOnClickListener {
+            sendMsgToLooperThread()
         }
     }
 
@@ -72,6 +92,21 @@ class HandlerActivity : BindingActivity<ActivityHandlerBinding>() {
     private fun callNormal1() {
         Toast.makeText(this, "normal1 execute.", Toast.LENGTH_SHORT).show()
         Log.d(TAG,"current thread:${Thread.currentThread()}")
+    }
+
+    private fun startLooperThread(){
+        looperThread=LooperThread()
+        looperThread!!.start()
+    }
+
+    private fun qiutLooperThread(){
+        looperThread?.quit()
+    }
+
+    private fun sendMsgToLooperThread(){
+        sendMsgCount++
+        Log.d(TAG,"send msg to LooperThread count=$sendMsgCount")
+        looperThread?.handler?.sendEmptyMessage(111)
     }
 
     private class MainHandler constructor(activity: HandlerActivity) : Handler() {
