@@ -23,6 +23,12 @@
                 android:text="Handler Code"
                 android:id="@+id/btn_handler"
                 android:layout_marginTop="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bitmap Code"
+                android:id="@+id/btn_bitmap"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>
