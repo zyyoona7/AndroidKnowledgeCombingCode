@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".thread.ThreadActivity">
+
+        <Button
+            android:id="@+id/btn_core"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test pool core" />
+
+        <Button
+            android:id="@+id/btn_max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test pool max" />
+
+        <Button
+            android:id="@+id/btn_reuse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test pool reuse" />
+    </LinearLayout>
+</layout>

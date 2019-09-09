@@ -29,6 +29,12 @@
                 android:text="Bitmap Code"
                 android:id="@+id/btn_bitmap"
                 android:layout_marginTop="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thread code"
+                android:id="@+id/btn_thread"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

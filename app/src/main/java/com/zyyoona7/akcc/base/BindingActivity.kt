@@ -1,6 +1,8 @@
 package com.zyyoona7.akcc.base
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.os.PersistableBundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,9 @@ import androidx.databinding.ViewDataBinding
 abstract class BindingActivity<VDB:ViewDataBinding>:AppCompatActivity() {
 
     lateinit var binding:VDB
+    private val handler by lazy {
+        Handler(Looper.getMainLooper())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,4 +34,12 @@ abstract class BindingActivity<VDB:ViewDataBinding>:AppCompatActivity() {
     abstract fun initData(savedInstanceState: Bundle?)
 
     abstract fun initListeners(savedInstanceState: Bundle?)
+
+    protected fun post(runnable:()->Unit){
+        handler.post(runnable)
+    }
+
+    protected fun postDelayed(delayed:Long,runnable: () -> Unit){
+        handler.postDelayed(runnable,delayed)
+    }
 }

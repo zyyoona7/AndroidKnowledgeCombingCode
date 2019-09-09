@@ -6,6 +6,7 @@ import com.zyyoona7.akcc.base.BindingActivity
 import com.zyyoona7.akcc.bitmap.BitmapActivity
 import com.zyyoona7.akcc.databinding.ActivityMainBinding
 import com.zyyoona7.akcc.handler.HandlerActivity
+import com.zyyoona7.akcc.thread.ThreadActivity
 
 class MainActivity : BindingActivity<ActivityMainBinding>() {
 
@@ -30,6 +31,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
 
         binding.btnBitmap.setOnClickListener {
             BitmapActivity.start(this@MainActivity)
+        }
+
+        binding.btnThread.setOnClickListener {
+            ThreadActivity.start(this@MainActivity)
         }
     }
 
